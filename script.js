@@ -1,9 +1,13 @@
 let facts = [
+  "The initial 750 Gallons of water are sold at a lower price for a household",
   "Did you know the average American uses 82 gallons of water a day?",
   "A bath uses up to 70 gallons of water!",
   "Turning off the tap while brushing your teeth saves 8 gallons a day.",
   "Leaks can waste nearly 1 trillion gallons of water annually in the U.S.",
-  "Showers use about 2.5 gallons per minute."
+  "Showers use about 2.5 gallons per minute.",
+  "A running toilet can waste up to 200 gallons of water a day.",
+  "Washing a car can use up to 100 gallons of water.",
+  "Only 1% of the earth's water is available for drinking water"
 ];
 let currentFact = 0;
 

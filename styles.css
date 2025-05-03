@@ -1,20 +1,81 @@
 body {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    background: #f4f9f9;
-  }
-  
-  label, input, select, button {
-    display: block;
-    margin-top: 10px;
-  }
-  
-  button {
-    margin-top: 15px;
-    padding: 10px 15px;
-    background: #3c8dbc;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f9ff;
+}
+
+header {
+  background-color: #34c759;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  font-size: 2em;
+}
+
+.fact-banner {
+  background: url('https://images.unsplash.com/photo-1521208911547-149d8f8f7f8c?fit=crop&w=1000&q=80') center/cover no-repeat;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(4px);
+  font-size: 1.2em;
+}
+
+.fact-banner button {
+  background-color: rgba(0,0,0,0.3);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.dashboard {
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.jug-and-pie {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: center;
+}
+
+.water-jug {
+  position: relative;
+  width: 120px;
+  height: 200px;
+  border: 4px solid #007aff;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #e0f7fa;
+}
+
+.jug-fill {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #007aff;
+  height: 0%;
+  transition: height 0.3s ease-in-out;
+}
+
+#jug-label {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+
+.bar-chart-section {
+  width: 100%;
+  max-width: 600px;
+}

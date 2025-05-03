@@ -1,23 +1,66 @@
-let totalUsed = 0;
+let facts = [
+  "Did you know the average American uses 82 gallons of water a day?",
+  "A bath uses up to 70 gallons of water!",
+  "Turning off the tap while brushing your teeth saves 8 gallons a day.",
+  "Leaks can waste nearly 1 trillion gallons of water annually in the U.S.",
+  "Showers use about 2.5 gallons per minute."
+];
+let currentFact = 0;
 
-function logUsage() {
-  const flowRate = parseFloat(document.getElementById('activity').value);
-  const minutes = parseFloat(document.getElementById('minutes').value);
-  const monthlyGoal = parseFloat(document.getElementById('monthlyGoal').value);
-
-  if (isNaN(minutes) || isNaN(monthlyGoal)) {
-    alert("Please enter both usage time and monthly goal.");
-    return;
-  }
-
-  const usage = flowRate * minutes;
-  totalUsed += usage;
-
-  document.getElementById('result').innerText = `You used ${usage.toFixed(2)} gallons. Total this month: ${totalUsed.toFixed(2)} gal.`;
-
-  if (totalUsed > monthlyGoal) {
-    document.getElementById('status').innerText = `⚠️ Over your goal by ${(totalUsed - monthlyGoal).toFixed(2)} gallons.`;
-  } else {
-    document.getElementById('status').innerText = `✅ Under your goal by ${(monthlyGoal - totalUsed).toFixed(2)} gallons.`;
-  }
+function updateFact() {
+  document.getElementById("fact-text").innerText = facts[currentFact];
 }
+
+function prevFact() {
+  currentFact = (currentFact - 1 + facts.length) % facts.length;
+  updateFact();
+}
+
+function nextFact() {
+  currentFact = (currentFact + 1) % facts.length;
+  updateFact();
+}
+
+// Jug Fill Simulation
+function setJugFill(percent) {
+  document.getElementById("jug-fill").style.height = percent + "%";
+}
+
+// Dummy data for pie and bar charts
+const pieData = {
+  labels: ["Shower", "Faucet", "Garden", "Other"],
+  datasets: [{
+    data: [40, 30, 20, 10],
+    backgroundColor: ["#34c759", "#007aff", "#ff9500", "#5856d6"]
+  }]
+};
+
+const pieChart = new Chart(document.getElementById("pieChart"), {
+  type: "pie",
+  data: pieData
+});
+
+const barData = {
+  labels: ["May 1", "May 2", "May 3", "May 4", "May 5"],
+  datasets: [{
+    label: "Water Used (gallons)",
+    data: [40, 55, 30, 45, 70],
+    backgroundColor: "#007aff"
+  }]
+};
+
+const barChart = new Chart(document.getElementById("barChart"), {
+  type: "bar",
+  data: barData,
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+});
+
+// Simulate water usage update
+setJugFill(60);
+updateFact();

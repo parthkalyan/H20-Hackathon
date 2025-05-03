@@ -15,14 +15,37 @@ function updateFact() {
   document.getElementById("fact-text").innerText = facts[currentFact];
 }
 
+
+function slideFact(direction) {
+  const factEl = document.getElementById("fact-text");
+  const offset = direction === "left" ? "-100%" : "100%";
+
+  // Slide out
+  factEl.style.transform = `translateX(${offset})`;
+  factEl.style.opacity = 0;
+
+  setTimeout(() => {
+    // Change the fact
+    updateFact();
+    // Reset position to opposite side
+    factEl.style.transform = `translateX(${direction === "left" ? "100%" : "-100%"})`;
+
+    setTimeout(() => {
+      // Slide in
+      factEl.style.transform = "translateX(0)";
+      factEl.style.opacity = 1;
+    }, 50);
+  }, 300);
+}
+
 function prevFact() {
   currentFact = (currentFact - 1 + facts.length) % facts.length;
-  updateFact();
+  slideFact("right");
 }
 
 function nextFact() {
   currentFact = (currentFact + 1) % facts.length;
-  updateFact();
+  slideFact("left");
 }
 
 // Jug Fill Simulation
@@ -45,10 +68,10 @@ const pieChart = new Chart(document.getElementById("pieChart"), {
 });
 
 const barData = {
-  labels: ["May 1", "May 2", "May 3", "May 4", "May 5"],
+  labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"],
   datasets: [{
     label: "Water Used (gallons)",
-    data: [40, 55, 30, 45, 70],
+    data: [40, 55, 30, 45, 70, 60, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170],
     backgroundColor: "#007aff"
   }]
 };

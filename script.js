@@ -64,14 +64,24 @@ const pieData = {
 
 const pieChart = new Chart(document.getElementById("pieChart"), {
   type: "pie",
-  data: pieData
+  data: pieData,
+  options: {
+    plugins: {
+      legend: {
+        labels: {
+          color: 'white'
+        }
+      }
+    }
+  }
 });
+
 
 const barData = {
   labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"],
   datasets: [{
     label: "Water Used (gallons)",
-    data: [40, 55, 30, 45, 70, 60, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170],
+    data: [40, 55, 30, 45, 50, 40, 50, 30, 90, 50, 70, 80, 60, 50, 40],
     backgroundColor: "#007aff"
   }]
 };
@@ -80,13 +90,63 @@ const barChart = new Chart(document.getElementById("barChart"), {
   type: "bar",
   data: barData,
   options: {
+    plugins: {
+      legend: {
+        labels: {
+          color: 'white'
+        }
+      }
+    },
     scales: {
+      x: {
+        ticks: {
+          color: 'white'
+        }
+      },
       y: {
-        beginAtZero: true
+        beginAtZero: true,
+        ticks: {
+          color: 'white'
+        }
       }
     }
   }
 });
+
+
+
+function floatFish() {
+  const fish = document.getElementById("floater");
+  const screenHeight = window.innerHeight;
+  const screenWidth = window.innerWidth;
+
+  const direction = Math.random() > 0.5 ? "right" : "left";
+  const duration = Math.random() * 5000 + 4000;
+  const topPos = Math.random() * (screenHeight - 100);
+
+  fish.style.top = `${topPos}px`;
+
+  if (direction === "right") {
+    fish.style.transform = "scaleX(1)";
+    fish.style.left = "-100px";
+    fish.style.transition = `left ${duration}ms linear`;
+    requestAnimationFrame(() => {
+      fish.style.left = `${screenWidth + 100}px`;
+    });
+  } else {
+    fish.style.transform = "scaleX(-1)";
+    fish.style.left = `${screenWidth + 100}px`;
+    fish.style.transition = `left ${duration}ms linear`;
+    requestAnimationFrame(() => {
+      fish.style.left = `-100px`;
+    });
+  }
+
+  setTimeout(floatFish, duration + 1000);
+}
+
+window.addEventListener("load", floatFish);
+
 
 // Simulate water usage update
 setJugFill(60);

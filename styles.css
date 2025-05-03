@@ -1,20 +1,99 @@
 body {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    background: #f4f9f9;
-  }
-  
-  label, input, select, button {
-    display: block;
-    margin-top: 10px;
-  }
-  
-  button {
-    margin-top: 15px;
-    padding: 10px 15px;
-    background: #3c8dbc;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0a1e3f; /* deep navy blue */
+  color: white; /* make text readable site-wide */
+}
+
+
+header {
+  background: url('https://images.unsplash.com/photo-1437482078695-73f5ca6c96e2?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cml2ZXJ8ZW58MHx8MHx8fDA%3D') center/cover no-repeat;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  font-size: 2em;
+  position: relative;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* dark overlay */
+  z-index: 0;
+}
+
+header h1 {
+  position: relative;
+  z-index: 1;
+}
+
+.fact-banner p {
+  color: rgb(37, 165, 167);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* improves readability */
+  margin: 0;
+  flex: 1;
+  text-align: center;
+}
+
+
+.fact-banner button {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: rgb(1, 41, 54);
+  border: thick solid rgba(0, 0, 0, 0.4);
+  padding: 0.5rem 1rem;
+  font-size: 1.5em;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+
+
+.dashboard {
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.jug-and-pie {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: center;
+}
+
+.water-jug {
+  position: relative;
+  width: 120px;
+  height: 200px;
+  border: 4px solid #007aff;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #e0f7fa;
+}
+
+.jug-fill {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #007aff;
+  height: 0%;
+  transition: height 0.3s ease-in-out;
+}
+
+#jug-label {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+
+.bar-chart-section {
+  width: 100%;
+  max-width: 600px;
+}

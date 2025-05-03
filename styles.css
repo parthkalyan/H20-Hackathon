@@ -49,6 +49,21 @@ header h1 {
 }
 
 
+.fact-container {
+  overflow: hidden;
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+#fact-text {
+  position: relative;
+  transition: transform 0.5s ease-in-out, opacity 0.3s ease;
+  display: inline-block;
+  white-space: nowrap;
+  padding: 0 1rem;
+}
+
 
 .dashboard {
   padding: 2rem;
